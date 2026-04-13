@@ -1,0 +1,27 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# Secrets & local data (keep .env.example tracked)
+backend/.env
+backend/data/
+
+# Node / Vite
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Frontend env (may contain VITE_* secrets)
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log

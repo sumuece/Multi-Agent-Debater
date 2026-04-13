@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-surface-0 text-zinc-100 antialiased min-h-screen;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+}
+
+::selection {
+  @apply bg-accent/30 text-white;
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen relative;
+    background-color: #070709;
+    background-image: radial-gradient(ellipse 80% 45% at 50% -15%, rgba(124, 58, 237, 0.2), transparent 55%),
+      radial-gradient(ellipse 55% 35% at 100% 10%, rgba(232, 121, 249, 0.1), transparent 50%),
+      radial-gradient(ellipse 45% 30% at 0% 40%, rgba(34, 211, 238, 0.06), transparent 50%);
+  }
+
+  .auth-shell {
+    @apply min-h-screen flex flex-col md:flex-row relative overflow-hidden;
+    background-color: #070709;
+  }
+
+  .auth-shell__hero {
+    @apply relative md:w-[46%] lg:w-[42%] flex flex-col justify-between p-8 md:p-12 lg:p-14 border-b md:border-b-0 md:border-r border-white/[0.06];
+    background-color: rgba(12, 13, 18, 0.88);
+    background-image: radial-gradient(ellipse 90% 60% at 20% 0%, rgba(124, 58, 237, 0.35), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 100% 20%, rgba(232, 121, 249, 0.18), transparent 50%),
+      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(56, 189, 248, 0.08), transparent 45%);
+  }
+
+  .auth-shell__panel {
+    @apply flex-1 flex flex-col items-center justify-center p-6 sm:p-10 md:p-12 relative overflow-hidden;
+    background-color: rgba(12, 13, 18, 0.88);
+    /* Mirror the hero side: soft violet / fuchsia / cyan washes, biased to the outer (right) edge */
+    background-image: radial-gradient(ellipse 88% 58% at 92% 0%, rgba(124, 58, 237, 0.32), transparent 58%),
+      radial-gradient(ellipse 72% 48% at 8% 18%, rgba(232, 121, 249, 0.16), transparent 52%),
+      radial-gradient(ellipse 58% 42% at 100% 88%, rgba(56, 189, 248, 0.09), transparent 48%);
+  }
+
+  .card-glass {
+    @apply rounded-2xl border border-white/[0.08] bg-surface-1/70 backdrop-blur-2xl;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 24px 64px -16px rgba(0, 0, 0, 0.65),
+      0 0 80px -20px rgba(124, 58, 237, 0.15);
+  }
+
+  .input-modern {
+    @apply w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-3.5 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600
+      shadow-inset transition-[border-color,box-shadow] duration-200
+      focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/20;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold text-white
+      bg-gradient-to-r from-brand-from via-brand-via to-brand-to shadow-glow
+      transition-[filter,transform,opacity] duration-200 hover:brightness-110 active:scale-[0.99]
+      disabled:pointer-events-none disabled:opacity-45;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-white/[0.1] bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-zinc-200
+      shadow-inset transition-colors hover:bg-white/[0.07] hover:border-white/[0.14];
+  }
+
+  .link-brand {
+    @apply text-accent font-medium transition-colors hover:text-accent-hover;
+  }
+
+  .glass-header {
+    background: linear-gradient(180deg, rgba(11, 12, 15, 0.92) 0%, rgba(7, 7, 9, 0.72) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200;
+  }
+
+  .nav-item svg {
+    @apply h-5 w-5 shrink-0 text-zinc-500 transition-colors;
+  }
+
+  .nav-item-active {
+    @apply bg-white/[0.08] text-white shadow-inset border border-white/[0.06];
+  }
+
+  .nav-item-active svg {
+    @apply text-accent;
+  }
+
+  .nav-item-idle {
+    @apply text-zinc-500 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent;
+  }
+
+  .nav-item-idle:hover svg {
+    @apply text-zinc-400;
+  }
+
+  .bento-card {
+    @apply relative rounded-2xl border border-white/[0.06] bg-surface-1/50 p-5 md:p-6 backdrop-blur-sm transition-all duration-300
+      hover:border-accent/25 hover:bg-surface-2/60 hover:shadow-[0_0_0_1px_rgba(168,85,247,0.12)];
+  }
+
+  .settings-group {
+    @apply card-glass overflow-hidden divide-y divide-white/[0.06];
+  }
+
+  .settings-row {
+    @apply flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-5 py-4 sm:py-5 bg-transparent;
+  }
+}
